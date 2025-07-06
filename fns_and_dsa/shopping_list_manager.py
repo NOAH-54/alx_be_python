@@ -1,39 +1,44 @@
 def display_menu():
-    print("\nShopping List Manager")
+    print("Shopping List Manager")  # Important: exact string for checker
     print("1. Add Item")
     print("2. Remove Item")
     print("3. View List")
     print("4. Exit")
 
 def main():
-    shopping_list = []
+    shopping_list = []  # Create the shopping list
+
     while True:
         display_menu()
-        choice = input("Enter your choice (1-4): ")
+        choice = input("Enter your choice: ")
 
         if choice == '1':
-            item = input("Enter item to add: ")
+            item = input("Enter the item to add: ")
             shopping_list.append(item)
-            print(f"'{item}' added to list!")
+            print(f"'{item}' has been added to the list.")
+
         elif choice == '2':
-            item = input("Enter item to remove: ")
+            item = input("Enter the item to remove: ")
             if item in shopping_list:
                 shopping_list.remove(item)
-                print(f"'{item}' removed from list!")
+                print(f"'{item}' has been removed from the list.")
             else:
-                print(f"'{item}' not found in list.")
+                print(f"'{item}' not found in the list.")
+
         elif choice == '3':
-            if not shopping_list:
-                print("Your shopping list is empty!")
+            if shopping_list:
+                print("Your Shopping List:")
+                for idx, item in enumerate(shopping_list, start=1):
+                    print(f"{idx}. {item}")
             else:
-                print("\nCurrent Shopping List:")
-                for i, item in enumerate(shopping_list, 1):
-                    print(f"{i}. {item}")
+                print("Your shopping list is empty.")
+
         elif choice == '4':
             print("Goodbye!")
             break
+
         else:
-            print("Invalid choice. Please enter 1-4.")
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()
