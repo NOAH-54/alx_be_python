@@ -1,12 +1,12 @@
 def display_menu():
-    print("Shopping List Manager")  # Important: exact string for checker
+    print("Shopping List Manager")  # EXACT match required
     print("1. Add Item")
     print("2. Remove Item")
     print("3. View List")
     print("4. Exit")
 
 def main():
-    shopping_list = []  # Create the shopping list
+    shopping_list = []
 
     while True:
         display_menu()
